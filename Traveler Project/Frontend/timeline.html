@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Timeline</title>
+	
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- <link href="css/normalize.css" rel="stylesheet" type="text/css"> -->
+	<link href="css/timeline-style.css" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+	
+	<div id="main">
+		<header>
+			<div id="logo">
+				Traveler<br>
+				<span><span><i class="fa fa-at"></i></span>Timeline</span>
+			</div>
+			
+			<p class="hSeperator"></p>
+			
+			<div id="find-friend">
+				<div class="dd" id="text" data-dd="ff-dropdown">Find people<i id="bot-icon" class="fa fa-sort-desc"></i></div>
+			</div>
+			
+			<div class="dropdown dd-deactive" id="ff-dropdown">
+				<div class="pointer"></div>
+				
+				<div class="content">
+					<button id="sug-ppl" class="tab current ff" data-content="#sug-content">You may know</button>
+					<div class="sub-content" id="sug-content">
+						<button id="invite">Invite friends</button>
+						<p class="vSeperator"></p>
+						<div class="sug-container">
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">AM</span></div>
+								<span class="sug-person-name">Alireza Molla</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">AY</span></div>
+								<span class="sug-person-name">Ashkan Yousefi</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">PN</span></div>
+								<span class="sug-person-name">Pedram Noruz</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">HR</span></div>
+								<span class="sug-person-name">Hesam Rahnama</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">KS</span></div>
+								<span class="sug-person-name">Kurosh Salehi</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">AH</span></div>
+								<span class="sug-person-name">Amin Heydarshahi</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">HY</span></div>
+								<span class="sug-person-name">Hossein Yousefi</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">MR</span></div>
+								<span class="sug-person-name">Mamad Rezaii</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">SY</span></div>
+								<span class="sug-person-name">Shayan Yousefi</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+							<div class="sug-person">
+								<div class="sug-person-img default"><span class="def-name">SN</span></div>
+								<span class="sug-person-name">Sorush Niki</span>
+								<span class="sug-person-follow">Follow</span>
+							</div>
+						</div>
+					</div>
+					<button id="search-ppl" class="tab ff" data-content="#search-content">Search for people</button>
+					<div class="sub-content" id="search-content">
+						<p>Search for people who is using traveler to make friends and share adventures together!</p>
+						<form action="" method="post">
+							<input id="search4people" name="search" type="text" placeholder="Find member...">
+						</form>
+						<div id="search-ppl-results">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<button id="home" style="color: #ab171e;"><i class="fa fa-home"></i></button>
+			<form action="" method="post" id="search-form">
+				<input name="search" type="text" placeholder="Search" id="search">
+			</form>
+			<button class="dd" id="categories" data-dd="cat-dropdown"><i class="fa fa-bars"></i></button>
+			
+			<div class="dropdown dd-deactive" id="cat-dropdown">
+				<div class="pointer"></div>
+				
+				<div class="content">
+					<h1>Categories</h1>
+					<div class="sub-content" id="cat-content">
+						<div class="col-1">
+							<a href="">Events & Holidays</a>
+							<a href="">Outdoor</a>
+							<a href="">Travel</a>
+							<a href="">Shop</a>
+							<a href="">Tour System</a>
+							<a href="">Planing a Trip</a>
+						</div>
+						<div class="col-2">
+							<a href="">Renting a Car</a>
+							<a href="">Knowledges & Articles</a>
+							<a href="">Being Host or Guest</a>
+							<a href="">Restaurants</a>
+							<a href="">Hotels & Inns</a>
+							<a href="">Cafés</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="prof">
+			
+				<div id="avatar">
+					<img src="img/avatar/me.jpg">
+				</div>
+				
+				<button class="dd" id="settings" data-dd="sets-dropdown"><i class="fa fa-cog"></i></button>
+				<div class="dropdown dd-deactive" id="sets-dropdown">
+					<div class="pointer"></div>
+					
+					<div class="content">
+						<a href=""><i class="fa fa-cogs"></i>Account Settings</a>
+						<a href=""><i class="fa fa-paragraph" id="i2"></i>New Pin-Post</a>
+						<a href=""><i class="fa fa-calendar" id="i3"></i>My Calendar</a>
+						<a href=""><i class="fa fa-sign-out" id="i4"></i>Logout</a>
+					</div>
+				</div>
+				
+				<button class="dd" id="feeds" data-dd="feeds-dropdown"><i class="fa fa-history"></i></button>
+				<div class="dropdown dd-deactive" id="feeds-dropdown">
+					<div class="pointer"></div>
+					
+					<div class="content">
+						<button id="notifications" data-content="#" class="current tab feeds">Notifications</button>
+						<div class="sub-content" id="notif-content">
+							<div id="notif-container">
+								<div id="mine">
+									
+								</div>
+								<div id="recomm">
+									
+								</div>
+							</div>
+						</div>
+						<button id="messages" data-content="#" class="tab feeds">Messages</button>
+						<div class="sub-content" id="msg-content" style="display: none;">
+							
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</header>
+		
+		<div id="board">
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/1.jpg">
+				</div>
+				<div class="desc">
+					This is the first pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/2.jpg">
+				</div>
+				<div class="desc">
+					This is the second pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/3.jpg">
+				</div>
+				<div class="desc">
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+					This is the third pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/4.jpg">
+				</div>
+				<div class="desc">
+					This is the 4th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/5.jpg">
+				</div>
+				<div class="desc">
+					This is the 5th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/6.jpg">
+				</div>
+				<div class="desc">
+					This is the 6th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/1.jpg">
+				</div>
+				<div class="desc">
+					This is the 7th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/8.jpg">
+				</div>
+				<div class="desc">
+					This is the 8th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/2.jpg">
+				</div>
+				<div class="desc">
+					This is the 9th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/7.jpg">
+				</div>
+				<div class="desc">
+					This is the 10th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="pin-post item">
+				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
+				<div class="image">
+					<img src="img/bgs/1.jpg">
+				</div>
+				<div class="desc">
+					This is the 11th pin at my Pin Board..
+				</div>
+				
+				<div class="icons">
+					<i class="shares fa fa-share-alt fa-1x"></i><span class="shares-value">0</span>
+					<i class="likes fa fa-heart fa-1x"></i><span class="likes-value">0</span>
+					<i class="share fa fa-thumb-tack"></i>
+					<i class="like fa fa-heart"></i>
+				</div>
+				
+				<p class="vSeperator"></p>
+				
+				<div class="from">
+					<div class="bg">
+						<img src="img/avatar/me.jpg">
+						<span class="pinner-name">Mostafa Shamsitabar</span><br>
+						<span class="related-as">your recent pin</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/masonry.js"></script>
+	<script src="js/masonry-setup.js"></script>
+	<script src="js/header.js"></script>
+</body>
+</html>
