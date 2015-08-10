@@ -1,0 +1,160 @@
+@import url(footer.css);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: url("../img/bgs/init.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+}
+
+.button {
+	color: white;
+	width: 150px;
+	background-color: #ab171e;
+	border-bottom-color: #820a0f;
+	border-left-color: #9a1015;
+	border-right-color: #9a1015;
+	border-top-color: #af151b;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 15px;
+	font-family: inherit;
+	font-weight: 200;
+	cursor: pointer;
+}
+
+#sign-up {
+	transition: background-color 1s, border 1s;
+}
+
+#sign-up:hover {
+	background-color: #ff526a;
+	border: 1px solid #ff526a;
+}
+
+.button#sign-up {
+	width: 172px;
+	position: absolute;
+	left: 50%;
+	margin-left: -86px;
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+#wrapper {
+	position: relative;
+	width: 716px;
+	height: 540px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 245, 0.8);
+	box-shadow: 0 0 8px;
+	margin: 3% auto;
+}
+
+#init-logo {
+	text-align: center;
+	font-family: "Pacifico";
+	font-size: 60px;
+}
+
+#init-content {
+	text-align: center;
+	font-size: 23px;
+	font-weight: bold;
+}
+
+#init-content span {
+	font-size: 15px;
+	font-weight: 500;
+}
+
+p#link {
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	left: 50%;
+	margin-left: -86px;
+}
+
+#sign-in {
+    font-family: inherit;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    background-color: green;
+    padding: 10px 66px 10px 66px;
+    font-weight: 200;
+    text-align: center;
+    transition: background-color 1s;
+}
+
+#sign-in:hover {
+	background-color: #049A04;
+}
+
+.seperator {
+	text-align: center;
+}
+
+.seperator p:after {
+	margin-left: 10px;
+}
+
+.seperator p:before {
+	margin-right: 10px;
+}
+
+.seperator p:after, .seperator p:before {
+	content: "";
+	display: inline-block;
+	height: 1px;
+	position: relative;
+	vertical-align: middle;
+	width: 10%;
+	background: rgba(0,0,0,0.2);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+form#sign-up-form {
+	margin-top: 40px;
+}
+
+.input {
+	display: block;
+	box-shadow: none;
+	font-size: 14px;
+	line-height: 20px;
+	font-style: italic;
+	font-weight: 300;
+	width: 230px;
+	border: 0;
+	background: rgba(255, 255, 255, .9);
+	border-radius: 5px;
+	margin: 0 auto;
+	padding: 8px 16px 9px;
+	color: #7a7a7a;
+	outline: none;
+	margin-bottom: 15px;
+	box-shadow: 0 0 1px;
+}
+
+footer a {
+	color: black
+}
+
+footer a:hover {
+	color: #ab171e;
+}

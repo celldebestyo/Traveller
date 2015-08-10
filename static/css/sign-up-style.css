@@ -1,0 +1,182 @@
+@import url(footer.css);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: url("../img/bgs/sign-up.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#logo {
+	text-align: center;
+	font-family: "Pacifico";
+	font-size: 60px;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	color: #525252;
+	position: relative;
+	top: 15px;
+	font-family: "Pacifico";
+	text-shadow: 0 0 25px black;
+}
+
+h2 {
+	font: inherit;
+	font-size: 12px;
+}
+
+.input {
+	box-shadow: none;
+	font-size: 16px;
+	line-height: 20px;
+	font-style: italic;
+	font-weight: 300;
+	width: 200px;
+	border: 0;
+	background: rgba(255, 255, 255, .9);
+	border-radius: 5px;
+	margin: 0;
+	padding: 8px 16px 9px;
+	color: #7a7a7a;
+	outline: none;
+	margin-top: 15px;
+	box-shadow: 0 0 1px;
+}
+
+input[name="password"], 
+input[name="confirm"], 
+input[name="email"] {
+	width: 275px;
+}
+
+input[name="age"] {
+	width: 40px;
+	text-align: center;
+}
+
+form {
+	margin-top: 20px;
+}
+
+#wrapper {
+	width: 400px;
+	position: relative;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0 0 8px;
+	background-color: rgba(245, 245, 245, 0.8);
+	margin: 3% auto;
+}
+
+ul {
+	font: inherit;
+	position: relative;
+	width: 400px;
+	left: 50%;
+	margin-left: -240px;
+}
+
+ul li {
+	list-style: none;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+#submit {
+	position: relative;
+	bottom: 10px;
+	color: white;
+	width: 150px;
+	background-color: #ab171e;
+	border-bottom-color: #820a0f;
+	border-left-color: #9a1015;
+	border-right-color: #9a1015;
+	border-top-color: #af151b;
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 15px;
+	font-family: inherit;
+	font-weight: 200;
+	cursor: pointer;
+	margin-bottom: 20px;
+    margin-top: 20px;
+	transition: background-color 0.1s linear;
+}
+
+#submit:hover {
+	background-color: #ff526a;
+	border: 1px solid #ff526a;
+}
+
+#busin, #getback {
+	position: relative;
+	font-family: inherit;
+	font-size: 15px;
+	color: black;
+	border-radius: 5px;
+	font-weight: bold;
+	text-align: center;
+	transition: color 0.8s;
+}
+
+#getback {
+	bottom: 10px;
+}
+
+#busin {
+	bottom: 5px;
+}
+
+#busin:hover, #getback:hover {
+	color: #ab171e;
+}
+
+#terms {
+	font: inherit;
+	text-align: center;
+	font-size: 11px;
+	width: 270px;
+	margin: 10px auto 0 auto;
+}
+
+#terms a {
+	color: black;
+	font-weight: bold;
+}
+
+#terms a:hover {
+	color: #ab171e;
+}
+
+.seperator p:after, .seperator p:before {
+	content: "";
+	display: inline-block;
+	height: 1px;
+	position: relative;
+	top: 50px;
+	vertical-align: middle;
+	width: 20%;
+	background: rgba(0,0,0,0.2);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+footer a {
+	color: black;
+	font-weight: bold;
+}
+
+footer a:hover {
+	color: #ab171e;
+}
