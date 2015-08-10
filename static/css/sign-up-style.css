@@ -77,12 +77,17 @@ form {
 	margin: 3% auto;
 }
 
+.content {
+	color: red;
+}
+
 ul {
 	font: inherit;
 	position: relative;
-	width: 400px;
-	left: 50%;
-	margin-left: -240px;
+	width: 170px;
+	margin: 10px auto 0 auto;
+	padding: 10px 0 10px 7px;
+	border-radius: 5px;
 }
 
 ul li {
@@ -111,7 +116,7 @@ ul li {
 	font-weight: 200;
 	cursor: pointer;
 	margin-bottom: 20px;
-    margin-top: 20px;
+	margin-top: 20px;
 	transition: background-color 0.1s linear;
 }
 

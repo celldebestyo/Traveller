@@ -8,6 +8,7 @@ from django.shortcuts import render
 # Create your views here.
 from login_signup.forms import SignupForm, LoginForm
 from normaluser.models import NormalUser
+import datetime
 
 
 def log_in(request):
@@ -39,16 +40,19 @@ def signup(request):
             newUser = NormalUser()
 
             try:
-                _newUser = User.objects.create_user(username=request.POST['email'], password=request.POST['password']
-                                                    , first_name=request.POST['name'], email=request.POST['email'])
-                newUser.user = _newUser
-                newUser.age = request.POST['age']
-                newUser.gender = request.POST['gender']
-                newUser.save()
-
+                _newUser = User.objects.create_user(username=form.cleaned_data['email'],
+                                                    password=form.cleaned_data['password'],
+                                                    first_name=form.cleaned_data['name'],
+                                                    email=form.cleaned_data['email'])
             except:
                 form.add_error(None, 'Email "' + request.POST['email'] + '" already existed')
                 return render(request, 'sign-up.html', {'signupForm': form})
+
+            newUser.user = _newUser
+            newUser.age = form.cleaned_data['age']
+            # newUser.birthDate.year = (datetime.datetime.now().year - form.cleaned_data['age'])
+            newUser.gender = form.cleaned_data['gender']
+            newUser.save()
 
             return HttpResponseRedirect(reverse('login'))
 

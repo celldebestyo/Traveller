@@ -8,6 +8,8 @@
 
 	<link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/sign-up-style.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraries/popup.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'libraries/transition.css' %}">
 
 </head>
 <body>
@@ -26,9 +28,9 @@
                 {{ error }}
             {% endfor %}
                 {% for field in signupForm %}
-                    {% for error in field.errors %}
-                        {{ error }}
-                    {% endfor %}
+{#                    {% for error in field.errors %}#}
+{#                        {{ error }}#}
+{#                    {% endfor %}#}
                     {% if field.name != 'age' %}
                         {{ field }}
                     {% else %}
@@ -41,11 +43,10 @@
 
 			<a href="" id="getback">I have an account</a><br>
 			<a href="" id="busin">Be a business member</a>
-			
+
 			<p id="terms">Creating an account means you’re okay with Traveler's <a href="terms.html">Terms & Privacy</a>, so make sure u have read it.</p>
-			
-		</div>
-		
+        </div>
+
 		<footer>
 			<a href="about.html">About Traveler</a>
 			<a href="terms.html">Terms & Privacy</a>
@@ -56,5 +57,84 @@
 		</footer>
 	</div>
 
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/transition.js' %}"></script>
+
+	<script type="text/javascript">
+
+        {% for field in signupForm %}
+            {% for error in field.errors %}
+                {% if field.name == 'age' or field.name == 'password'%}
+                    $("input[name='{{ field.name }}']").popup({
+                        content : '{{ error }}',
+                        position: "right center",
+                        on : "manual",
+                        hideOnScroll: false
+                    });
+                {% endif %}
+
+                {% if field.name == 'name' or field.name == 'confirm' or field.name == 'email' %}
+                    $("input[name='{{ field.name }}']").popup({
+                        content : '{{ error }}',
+                        position: "left center",
+                        on : "manual",
+                        hideOnScroll: false
+                    });
+                {% endif %}
+            {% endfor %}
+            $('input[name="{{ field.name }}"]').popup("show");
+        {% endfor %}
+
+        {% for field in signupForm %}
+            {% if field.name == 'gender' %}
+                {% for error in field.errors %}
+                    $("#id_gender").popup({
+                            content : '{{ error }}',
+                            position: "right center",
+                            on : "manual",
+                            hideOnScroll: false
+                        });
+                    $('#id_gender').popup("show");
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+{##}
+{#		$('input[name="name"]').popup({#}
+{#		    content : 'Hello I am a popup',#}
+{#		    position: "left center",#}
+{#		    on : "manual"#}
+{#		  });#}
+{##}
+{#		$('input[name="name"]').popup("show");#}
+{##}
+{#		$('input[name="email"]').popup({#}
+{#		    content : 'Hello I am a popup',#}
+{#		    position: "right center",#}
+{#		    on : "manual"#}
+{#		  });#}
+{##}
+{#		$('input[name="email"]').popup("show");#}
+{##}
+{#		$('input[name="password"]').popup({#}
+{#		    content : 'Hello I am a popup',#}
+{#		    position: "left center",#}
+{#		    on : "manual"#}
+{#		  });#}
+{##}
+{#		$('input[name="password"]').popup("show");#}
+{##}
+{#		$('input[name="confirm"]').popup({#}
+{#		    content : 'Hello I am a popup',#}
+{#		    position: "right center",#}
+{#		    on : "manual"#}
+{#		  });#}
+{##}
+{#		$('input[name="confirm"]').popup("show");#}
+{##}
+{#		$("form ul").css({#}
+{#			"border" : "1px solid red"#}
+{#		});#}
+	</script>
 </body>
 </html>
