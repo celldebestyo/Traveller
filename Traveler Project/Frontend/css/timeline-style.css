@@ -1,3 +1,5 @@
+/* @import url(http://fonts.googleapis.com/css?family=Pacifico); */
+
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: url("../img/bgs/texture.png") center center fixed;
@@ -133,7 +135,7 @@ header button#home {
 	border-bottom-left-radius: 5px;
 	top: 19px;
 	left: 50%;
-	margin-left: -247px;
+	margin-left: -246px;
 }
 
 .fa {
@@ -508,10 +510,6 @@ header input {
 	font-weight: 200;
 	box-shadow: 0 3px 3px #717171;
 	margin-top: 10px;
-}
-
-.pin-icon {
-	display: none;
 }
 
 .pin-post .pin-icon img {

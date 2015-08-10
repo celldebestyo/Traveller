@@ -18,10 +18,12 @@
 		
 		<div id="wrapper">
 			<h1>Log in as normal member</h1>
-			
+			<p class="error-wrong">Your email address or password is wrong!</p>
 			<form action="" method="post">
-				<p><input class="input" id="email" name="email" type="text" placeholder="Email"></p>
+				<p><input class="input error" id="email" name="email" type="text" placeholder="Email"></p>
+				<p class="error-msg">You should fill this field!</p>
 				<p><input class="input" id="pass" name="password" type="password" placeholder="Password"></p>
+				<p class="error-msg">You should fill this field!</p>
 				<p><input id="submit" type="submit" value="Log in"></p>
 			</form>
 			

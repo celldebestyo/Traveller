@@ -7,6 +7,8 @@
 
 	<link href="css/normalize.css" rel="stylesheet" type="text/css">
 	<link href="css/sign-up-style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="libraries/popup.css">
+	<link rel="stylesheet" type="text/css" href="libraries/transition.css">
 
 </head>
 <body>
@@ -18,26 +20,27 @@
 		
 		<div id="wrapper">
 			<h1>Be a normal member</h1>
-			Your email address:<h2>mosi@gmail.com</h2>
 			
 			<form action="" method="post">
 				<input name="name" type="text" placeholder="Full name (first and last)" class="input">
-				<input name="age" type="text" placeholder="Age" class="input">
+				<input name="age" type="text" placeholder="Age" class="input"><br>
+				<input name="email" type="text" placeholder="Email" class="input"><br>
+				<input name="password" type="password" placeholder="Password" class="input"><br>
+				<input name="confirm" type="password" placeholder="Confirm password" class="input"><br>
 				<ul>
-					<li><p>
+					<li>
 						<input name="gender" type="radio">
 						<span>Male</span>
-					</p></li>
-					<li><p>
+					</li>
+					<li>
 						<input name="gender" type="radio">
 						<span>Female</span>
-					</p></li>
+					</li>
 				</ul>
 				<input value="Get in!" type="submit" id="submit">
 			</form>
-			
-			<a href="index.html" id="back">Back</a><br>
 
+			<a href="" id="getback">I have an account</a><br>
 			<a href="" id="busin">Be a business member</a>
 			
 			<p id="terms">Creating an account means you’re okay with Traveler's <a href="terms.html">Terms & Privacy</a>, so make sure u have read it.</p>
@@ -53,6 +56,53 @@
 			<a href="yumb.html">Yumb</a>
 		</footer>
 	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="libraries/popup.js"></script>
+	<script type="text/javascript" src="libraries/transition.js"></script>
+	<script type="text/javascript">
+		$('input[name="age"]').popup({
+		    content : 'Hello I am a popup',
+		    position: "right center",
+		    on : "manual"
+		  });
 
+		$('input[name="age"]').popup("show");
+
+		$('input[name="name"]').popup({
+		    content : 'Hello I am a popup',
+		    position: "left center",
+		    on : "manual"
+		  });
+
+		$('input[name="name"]').popup("show");
+
+		$('input[name="email"]').popup({
+		    content : 'Hello I am a popup',
+		    position: "right center",
+		    on : "manual"
+		  });
+
+		$('input[name="email"]').popup("show");
+
+		$('input[name="password"]').popup({
+		    content : 'Hello I am a popup',
+		    position: "left center",
+		    on : "manual"
+		  });
+
+		$('input[name="password"]').popup("show");
+
+		$('input[name="confirm"]').popup({
+		    content : 'Hello I am a popup',
+		    position: "right center",
+		    on : "manual"
+		  });
+
+		$('input[name="confirm"]').popup("show");
+
+		$("form ul").css({
+			"border" : "1px solid red"
+		});
+	</script>
 </body>
 </html>
