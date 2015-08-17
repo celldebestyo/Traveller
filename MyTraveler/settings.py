@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_USE_TLS, SERVER_EMAIL, \
+    DEFAULT_FROM_EMAIL
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -112,3 +114,12 @@ TEMPLATE_DIRS = (
 )
 
 LOGIN_URL = 'login'
+
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='travellerbot@gmail.com'
+EMAIL_HOST_PASSWORD='ggwpezwin'
+EMAIL_USE_TLS = True
+

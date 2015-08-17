@@ -47,3 +47,10 @@ class Event(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=255)
     invitees = models.ManyToManyField(NormalUser)
+
+class VerificationCode(models.Model):
+    user = models.OneToOneField(User)
+    code = models.CharField(max_length=12)
+
+    def __str__(self):
+        return self.user.email + ": " + self.code

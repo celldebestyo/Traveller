@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Verification</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/succeed-style.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'libraries/popup.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'libraries/transition.css' %}">
+
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<h1>Just a few steps..</h1>
+
+			<p>
+				Check your email address, an email containing your verification code has been sent to you.
+				<br>
+				Please fill the field below with your verification code.
+			</p>
+
+			<form action="" method="post" id="verif-form">
+                {% csrf_token %}
+				<input type="text" placeholder="Verification code" name="verifier" id="verif"><br>
+				<input type="submit" value="Verify" id="submit">
+			</form>
+		</div>
+	</body>
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/transition.js' %}"></script>
+    <script>
+        {% if error != '' %}
+            $("#verif").popup({
+                    content : '{{ error }}',
+                    position: "right center",
+                    on : "manual",
+                    hideOnScroll: false
+                });
+            $('#verif').popup("show");
+        {% endif %}
+
+        $('.content').css('color', 'red');
+
+    </script>
+</html>
