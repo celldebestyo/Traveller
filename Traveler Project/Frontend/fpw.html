@@ -5,12 +5,47 @@
 	<meta charset="utf-8">
 	<title></title>
 
-	<link href="css/first-step-style.css" rel="stylesheet" type="text/css">
+	<link href="css/fpw-style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="libraries/popup.css">
+	<link rel="stylesheet" type="text/css" href="libraries/transition.css">
 
 </head>
 <body>
+	<div class="wrapper first">
+		<h1>First Step!</h1>
+		<p>
+			Please fill the field below with your email address, you will get your verification code.
+		</p>
 
+		<form action="" method="post" id="email_form">
+			<input type="hidden" name="form" value="email">
+			<input name="email" placeholder="Email" type="text" class="input"><br>
+			<input type="submit" id="submit" value="Verify">
+		</form>
+		<a href="sign-in.html">Get me to sign in</a>
+	</div>
 
+	<div class="wrapper second">
+		<h1>Second Step!</h1>
+		<p>
+			Check your email address, an email containing your verification code has been sent to you.<br>
+			You will need it to fill the fields below.
+		</p>
 
+		<form action="" method="post" id="verif_form">
+			<input type="hidden" name="form" value="verif">
+			<input type="text" name="verif" placeholder="Verification code" class="input">
+			<input type="password" name="new_password" placeholder="New password" class="input">
+			<input type="password" name="confirm" placeholder="Confirm password" class="input">
+			<input type="submit" id="submit" value="Set">
+		</form>
+		<a href="sign-in.html">Get me to sign in</a>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/fpw-ajax.js"></script>
+	<script type="text/javascript" src="libraries/popup.js"></script>
+	<script type="text/javascript" src="libraries/transition.js"></script>
 </body>
 </html>

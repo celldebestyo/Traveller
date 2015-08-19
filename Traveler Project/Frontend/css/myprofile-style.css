@@ -1,0 +1,172 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: url("../img/bgs/noise.png") center center fixed;
+}
+
+#wrapper {
+
+}
+
+h1 {
+	font-family: "Pacifico";
+	text-align: center;
+	text-shadow: 0 0 20px;
+	cursor: default;
+}
+
+#prof-img-name {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#prof-img-name span {
+	font-family: "Pacifico";
+	font-size: 20px;
+	text-shadow: 0 0 10px;
+	cursor: default;
+}
+
+#prof-img-name img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	box-shadow: 0 0 5px;
+}
+
+#prof-dets {
+	text-align: center;
+}
+
+#prof-dets .val {
+	margin-right: 15px;
+}
+
+#prof-dets .det {
+	transition: color 0.5s;
+	text-decoration: none;
+	color: black;
+}
+
+#prof-dets .det:hover {
+	color: #34B9FF;
+}
+
+.seperator {
+	text-align: center;
+	height: 1px;
+	position: relative;
+	vertical-align: middle;
+	width: 30%;
+	margin: 40px auto;
+	background: rgba(0,0,0,0.2);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.seperator.top {
+	margin-bottom: 20px;
+}
+
+.seperator.bot {
+	margin-top: 20px;
+}
+
+.seperator.x1 {
+	width: 10%;
+	margin: -20px auto;
+}
+
+#btnform {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+#btnform input[type="submit"] {
+	color: white;
+	border: 0;
+	width: 100px;
+	height: 100px;
+	padding: 10px;
+	background-color: #ff526a;
+	border-radius: 50px;
+	font-size: 15px;
+	font-family: inherit;
+	font-weight: 200;
+	cursor: pointer;
+	transition: background-color 0.5s;
+	margin-right: 10px;
+	outline: none;
+}
+
+#btnform input[type="submit"]:hover {
+	background-color: #ab171e;
+}
+
+#new {
+	background-color: black;
+	color: white;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	margin: 60px auto 20px auto;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color 0.5s;
+}
+
+#new:hover {
+	background-color: #504747;
+}
+
+#new span {
+	font-size: 12px;
+	position: relative;
+	/*top: 95px;*/
+	top: 40px;
+	font-weight: bold;
+}
+
+/* BOARDS */
+
+.board {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	box-shadow: 0 0 5px;
+	position: relative;
+	overflow: hidden;
+}
+
+.board .edit {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.board .edit i {
+	position: absolute;
+	color: black;
+	left: 50%;
+	margin-left: -7px;
+}
+
+.board img {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+}
+
+.board .info {
+	position: absolute;
+	bottom: 0;
+	left: 5px;
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 190px;
+	height: 70px;
+}
+
+.board .info .name {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
