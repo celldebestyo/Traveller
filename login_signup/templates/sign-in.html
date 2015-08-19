@@ -8,6 +8,8 @@
 
 	<link href="{% static 'css/sign-in-style.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraries/popup.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'libraries/transition.css' %}">
 
 </head>
 <body>
@@ -19,17 +21,18 @@
 		
 		<div id="wrapper">
 			<h1>Log in as normal member</h1>
-			
+
 			<form action="" method="post">
                 {% csrf_token %}
-				<p><input class="input" id="email" name="email" type="text" placeholder="Email"></p>
-				<p><input class="input" id="pass" name="password" type="password" placeholder="Password"></p>
+				{% for field in form %}
+                    <p> {{ field }} </p>
+                {% endfor %}
 				<p><input id="submit" type="submit" value="Log in"></p>
 			</form>
 			
 			<div id="navigator">
 				<a href="{% url 'signup' %}">Sign up</a>
-				<a href="fpw.html">Forgot the password?!</a>
+				<a href="fpw_1.html">Forgot the password?!</a>
 			</div>
 			
 			<p id="busin"><a href="business.html">Login as business!</a></p>
@@ -47,5 +50,40 @@
 		
 	</div>
 
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/popup.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libraries/transition.js' %}"></script>
+
+    <script>
+        {% for field in form %}
+            {% for error in field.errors %}
+                $("input[name='{{ field.name }}']").popup({
+                    content : '{{ error }}',
+                    position: "right center",
+                    on : "manual",
+                    hideOnScroll: false
+                });
+            {% endfor %}
+
+            $('input[name="{{ field.name }}"]').popup("show");
+        {% endfor %}
+
+
+        {% for error in form.non_field_errors %}
+            $("#wrapper").popup({
+                    content : '{{ error }}',
+                    position: "right center",
+                    on : "manual",
+                    hideOnScroll: false
+                });
+            $("#wrapper").popup('show');
+{#            $('.content').css('position', 'relative');#}
+            $('.ui.popup').css('top', '267px')
+        {% endfor %}
+
+        $('.content').css('color', 'red');
+        $('.content').css('text-align', 'center')
+
+    </script>
 </body>
 </html>

@@ -11,6 +11,12 @@ my_default_errors = {
 }
 
 class LoginForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if 'required' in field.error_messages:
+                field.error_messages['required'] = 'Please fill this field!'
+
     username = forms.CharField(label='', widget=TextInput(attrs={'class': 'input', 'id': 'email', 'name': 'email',
                                                                  'type': 'text', 'placeholder': 'Email or Username'}))
 
@@ -70,5 +76,23 @@ class SignupForm(forms.Form):
     def clean(self):
         if self.data['password'] != self.data['confirm']:
             raise ValidationError('Entered passwords do not match')
+
+        return self.cleaned_data
+
+
+class forgot1(forms.Form):
+    email = forms.EmailField(label='', widget=TextInput(attrs={'placeholder': 'Email', 'type': 'text',
+                                                               'class': 'input'}))
+
+
+class forgot2(forms.Form):
+    new_password = forms.CharField(label='', widget=PasswordInput(attrs={'placeholder': 'New password',
+                                                                         'class': 'input'}))
+    confirm_password = forms.CharField(label='', widget=PasswordInput(attrs={'placeholder': 'Confirm Password',
+                                                                             'class': 'input'}))
+
+    def clean(self):
+        if self.data['new_password'] != self.data['confirm_password']:
+            raise ValidationError('Entered passwords do not match!')
 
         return self.cleaned_data

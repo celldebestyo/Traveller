@@ -7,11 +7,11 @@ from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.core.validators import validate_email
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from login_signup.forms import SignupForm, LoginForm
+from login_signup.forms import SignupForm, LoginForm, forgot1, forgot2
 from normaluser.models import NormalUser, VerificationCode
 import datetime
 
@@ -28,7 +28,7 @@ def log_in(request):
 
             if user is not None:
                 if user.is_active == False:
-                    return render(request, 'verification-code.html', {'error': 'Your account is not enable!'})
+                    return HttpResponseRedirect(reverse('verification', args=[user.email]))
 
                 else:
                     login(request, user)
@@ -115,12 +115,89 @@ def verify(request, email):
 
         if request.POST['verifier'] == code.code:
             currUser.is_active = True
+            code.delete()
             return HttpResponseRedirect(reverse('login'))
 
         else:
             return render(request, 'verification-code.html', {'error': 'Wrong verification code!'})
 
 
+def forgot_password_1(request):
+    if request.method == 'GET':
+        return render(request, 'fpw_1.html', {'form': forgot1()})
+
+    else:
+        form = forgot1(request.POST)
+
+        if form.is_valid():
+            email = form.cleaned_data['email']
+
+            try:
+                currUser = User.objects.get(email=email)
+            except:
+                return render(request, 'fpw_1.html', {'form': form, 'error': 'No such email exist'})
+
+        else:
+            return render(request, 'fpw_1.html', {'form': form, 'error': 'Entered email is not valid'})
+
+
+        if currUser.is_active:
+            try:
+                tmpVerifCode = VerificationCode.objects.get(user=currUser)
+            except:
+                tmpVerifCode = None
+
+            if tmpVerifCode is not None:
+                tmpVerifCode.delete()
+
+            verifCode = VerificationCode()
+            verifCode.user = currUser
+            verifCode.code = generate_verification_code()
+            verifCode.save()
+
+            send_mail('Traveler', 'Hello ' + currUser.first_name + '\n\n You can reset your password by clicking on '
+                                           + 'link below: \n\n http://127.0.0.1:8000' +
+                      reverse('fpw2', args=[email, verifCode.code]),
+                      'travellerbot', [email])
+
+            return render(request, 'fpw_1.html', {'form': form, 'success': 'Check your email address, an email ' +
+                                                                           'containing a link to change your password '
+                                                                           + 'has sent to you '})
+        else:
+            return render(request, 'fpw_1.html', {'error': 'Your account is not enable yet!'})
+
+
+def forgot_password_2(request, email, code):
+    if request.method == 'GET':
+        return render(request, 'fpw_2.html', {'form': forgot2})
+
+    else:
+        form = forgot2(request.POST)
+
+        if form.is_valid():
+            try:
+                currUser = User.objects.get(email=email)
+            except:
+                raise Http404
+
+        else:
+            return render(request, 'fpw_2.html', {'form': form, 'error': 'Entered password do not match'})
+
+
+        verifCode = get_object_or_404(VerificationCode, user=currUser)
+
+        if verifCode.code == code:
+            currUser.set_password(request.POST['new_password'])
+            currUser.save()
+            return HttpResponseRedirect(reverse('login'))
+
+        else:
+            raise ValidationError("It seems that you're cheating or something! :D")
+
+
+
+
+# extra functions
 
 def generate_verification_code():
     code = ''
@@ -129,3 +206,4 @@ def generate_verification_code():
         code += str(randint(0, 9))
 
     return code
+
