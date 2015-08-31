@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_extras %}
 <!DOCTYPE html>
 
 <html>
@@ -8,6 +9,7 @@
 	
 	<link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/timeline-style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/header.css' %}" rel="stylesheet" type="text/css">
 	
 </head>
 <body>
@@ -132,11 +134,15 @@
 			</div>
 			
 			<div id="prof">
-			
-				<div id="avatar">
-					<img src="{% static 'img/avatar/me.jpg' %}">
-				</div>
-				
+                    <a href="{% url 'profile' %}">
+                        <div id="avatar">
+                            {% if currUser.image != None %}
+                                <img src="{% static 'img/avatar/Me.jpg' %}">
+                            {% else %}
+                                <div class="sug-person-img default"><span class="def-name">{{ currUser.first_name|shortname }}</span></div>
+                            {% endif %}
+                        </div>
+                    </a>
 				<button class="dd" id="settings" data-dd="sets-dropdown"><i class="fa fa-cog"></i></button>
 				<div class="dropdown dd-deactive" id="sets-dropdown">
 					<div class="pointer"></div>
@@ -145,7 +151,7 @@
 						<a href=""><i class="fa fa-cogs"></i>Account Settings</a>
 						<a href=""><i class="fa fa-paragraph" id="i2"></i>New Pin-Post</a>
 						<a href=""><i class="fa fa-calendar" id="i3"></i>My Calendar</a>
-						<a href=""><i class="fa fa-sign-out" id="i4"></i>Logout</a>
+						<a href="{% url 'logout' %}"><i class="fa fa-sign-out" id="i4"></i>Logout</a>
 					</div>
 				</div>
 				
@@ -177,7 +183,6 @@
 		
 		<div id="board">
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/1.jpg' %}">
 				</div>
@@ -196,7 +201,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -204,7 +209,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/2.jpg' %}">
 				</div>
@@ -223,7 +227,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -231,7 +235,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/3.jpg' %}">
 				</div>
@@ -256,7 +259,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -264,7 +267,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/4.jpg' %}">
 				</div>
@@ -283,7 +285,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -291,7 +293,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/5.jpg' %}">
 				</div>
@@ -310,7 +311,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -318,7 +319,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/6.jpg' %}">
 				</div>
@@ -337,7 +337,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -345,7 +345,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/1.jpg' %}">
 				</div>
@@ -364,7 +363,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -372,7 +371,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="img/icons/pin1.png"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/8.jpg' %}">
 				</div>
@@ -391,7 +389,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -399,7 +397,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/2.jpg' %}">
 				</div>
@@ -418,7 +415,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -426,7 +423,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/7.jpg' %}">
 				</div>
@@ -445,7 +441,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>
@@ -453,7 +449,6 @@
 			</div>
 			
 			<div class="pin-post item">
-				<div class="pin-icon"><img src="{% static 'img/icons/pin1.png' %}"></div>
 				<div class="image">
 					<img src="{% static 'img/bgs/1.jpg' %}">
 				</div>
@@ -472,7 +467,7 @@
 				
 				<div class="from">
 					<div class="bg">
-						<img src="{% static 'img/avatar/me.jpg' %}">
+						<img src="{% static 'img/avatar/Me.jpg' %}">
 						<span class="pinner-name">Mostafa Shamsitabar</span><br>
 						<span class="related-as">your recent pin</span>
 					</div>

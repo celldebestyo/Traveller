@@ -1,4 +1,3 @@
-import random
 from random import randint
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -9,12 +8,10 @@ from django.core.urlresolvers import reverse
 from django.core.validators import validate_email
 from django.http.response import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
-
-# Create your views here.
 from login_signup.forms import SignupForm, LoginForm, forgot1, forgot2
 from normaluser.models import NormalUser, VerificationCode
-import datetime
 
+# Create your views here.
 
 def log_in(request):
     if request.method == 'GET':
@@ -87,17 +84,6 @@ def signup(request):
         return render(request, 'sign-up.html', {'signupForm': form})
 
 
-
-@login_required
-def timeline(request):
-    return render(request, 'timeline.html', {}  )
-
-
-def log_out(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('login'))
-
-
 def verify(request, email):
     if request.method == 'GET':
         return render(request, 'verification-code.html', {})
@@ -164,7 +150,7 @@ def forgot_password_1(request):
                                                                            'containing a link to change your password '
                                                                            + 'has sent to you '})
         else:
-            return render(request, 'fpw_1.html', {'error': 'Your account is not enable yet!'})
+            return render(request, 'fpw_1.html', {'form': form, 'error': 'Your account is not enable yet!'})
 
 
 def forgot_password_2(request, email, code):
@@ -189,6 +175,7 @@ def forgot_password_2(request, email, code):
         if verifCode.code == code:
             currUser.set_password(request.POST['new_password'])
             currUser.save()
+            verifCode.delete()
             return HttpResponseRedirect(reverse('login'))
 
         else:

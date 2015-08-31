@@ -19,7 +19,18 @@ class NormalUser(models.Model):
     def __str__(self):
         return self.user.email
 
+class Board(models.Model):
+    admin = models.ForeignKey(NormalUser, related_name='admin')
+    name = models.CharField(max_length=255)
+    #Problem Here
+    image = models.ImageField(null=True, blank=True, upload_to='')
+    description = models.TextField()
+    participants = models.ManyToManyField(NormalUser, related_name='participants', null=True, blank=True)
+    followers = models.ManyToManyField(NormalUser, related_name='board_followers', null=True, blank=True)
+
+
 class Post(models.Model):
+    board = models.ForeignKey(Board, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     description = models.TextField()
     date = models.DateField(default=datetime.datetime.now);
@@ -29,15 +40,9 @@ class Post(models.Model):
     owner = models.ForeignKey(NormalUser, related_name='owner')
     relatedAs = models.CharField(max_length=255)
 
+
 class Calendar(models.Model):
     user = models.ForeignKey(NormalUser)
-
-class Board(models.Model):
-    admin = models.ForeignKey(NormalUser, related_name='admin')
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    participants = models.ManyToManyField(NormalUser, related_name='participants')
-    followers = models.ManyToManyField(NormalUser, related_name='board_followers')
 
 
 class Event(models.Model):

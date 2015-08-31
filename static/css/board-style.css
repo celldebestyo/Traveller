@@ -1,0 +1,272 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: url("../img/bgs/bg.jpg") center center fixed;
+	/*background: url("../img/bgs/texture.png") center center fixed;*/
+}
+
+#wrapper {
+	margin-top: 100px;
+}
+
+#head-photo {
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 70px;
+	margin-bottom: 80px;
+}
+
+#board-name {
+	position: relative;
+	top: 20px;
+	font-family: "Pacifico";
+	cursor: default;
+	text-shadow: 0 0 20px;
+	color: #7F4447;
+	text-align: center;
+	font-size: 3em;
+	font-weight: 200;
+}
+
+#head-photo #board-photo {
+	width: 300px;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+#head-photo .tape {
+	width: 70px;
+	position: absolute;
+}
+
+#head-photo .tape#top-right {
+	top: -27px;
+	right: 18px;
+}
+
+#head-photo .tape#top-left {
+	top: -27px;
+	left: 18px;
+	transform: rotate(90deg);
+}
+
+#head-photo .tape#bot-left {
+	bottom: -25px;
+	left: 20px;
+}
+
+#head-photo .tape#bot-right {
+	bottom: -25px;
+	right: 20px;
+	transform: rotate(90deg);
+}
+
+#board-info {
+	width: 400px;
+	margin: 0 auto;
+	margin-bottom: 70px;
+	border-radius: 10px;
+	border: none;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 15px 10px 15px 10px;
+}
+
+#board-info #desc {
+	font-size: 14px;
+	width: 300px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	font-weight: 200;
+	text-align: center;
+	text-shadow: 0 0 30px;
+}
+
+#board-info #followers, #edit-board {
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	border-radius: 10px;
+	background-color: #A74754;
+	padding: 10px;
+	width: 100px;
+	margin: 10px auto;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color 0.5s;
+}
+
+#board-info #followers:hover, #board-info #edit-board:hover {
+	background-color: #ff526a;
+}
+
+#add {
+	background-color: #A74754;
+	color: white;
+	border-radius: 30px;
+	width: 60px;
+	height: 60px;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	transition: background-color 0.5s;
+	cursor: pointer;
+}
+
+#add:hover {
+	background-color: #ff526a;
+}
+
+#add span {
+	font-size: 12px;
+	position: relative;
+	top: 19px;
+	font-weight: bold;
+}
+
+#pin-posts-head {
+	font-family: "Pacifico";
+	text-align: center;
+	text-shadow: 0 0 20px;
+	cursor: default;
+}
+
+#new {
+	background-color: black;
+	color: white;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	margin: 60px auto 20px auto;
+	text-align: center;
+	transition: background-color 0.5s;
+	cursor: pointer;
+}
+
+#new:hover {
+	background-color: #504747;
+}
+
+#new span {
+	font-size: 12px;
+	position: relative;
+	top: 40px;
+	font-weight: bold;
+}
+
+/* PINS */
+
+#posts {
+	width: 900px;
+	margin: 80px auto 30px auto;
+}
+
+#posts .fa {
+	font-size: 15px;
+}
+
+.pin-post {
+	width: 230px;
+	border-radius: 10px;
+	background-color: white;
+	font-size: 13px;
+	font-weight: 200;
+	box-shadow: 0 3px 3px #717171;
+	margin-top: 10px;
+}
+
+.pin-post .pin-icon img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 50%;
+	top: -10px;
+	margin-left: -25px;
+}
+
+.pin-post .image {
+	
+}
+
+.image img {
+	width: 230px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.pin-post .desc {
+	padding: 10px;
+}
+
+.icons {
+	position: relative;
+	top: 20px;
+}
+
+.shares, .likes {
+	color: #717171;
+	margin-right: 5px;
+}
+
+.shares {
+	margin-left: 10px;
+}
+
+.shares-value {
+	margin-right: 8px;
+}
+
+.like, .share {
+	float: right;
+}
+
+.share {
+	margin-left: 24px;
+	margin-right: 10px;
+}
+
+.like:hover, .share:hover {
+	color: #ab171e;
+	cursor: pointer;
+}
+
+.pin-post .from {
+
+}
+
+.from img {
+	position: relative;
+	bottom: 6px;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+.from .pinner-name {
+	position: relative;
+	bottom: 24px;
+	font-weight: 500;
+}
+
+.from .related-as {
+	position: relative;
+	bottom: 25px;
+	left: 34px;
+	color: #ab171e;
+}
+
+.from .bg {
+	position: relative;
+	width: 200px;
+	height: 20px;
+	background-color: beige;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	cursor: pointer;
+	padding: 15px;
+	transition: background-color 1s;
+}
+
+.bg:hover {
+	background-color: rgb(249, 249, 182);
+}

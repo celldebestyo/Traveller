@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
-
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: url("../img/bgs/fpw.jpg") no-repeat center center fixed;
@@ -26,14 +24,14 @@ h1 {
 }
 
 .first {
-	/*display: none;*/
 	margin-left: -210px;
 	margin-top: -160.5px;
 }
 
 .second {
+	display: none;
 	margin-left: -210px;
-	margin-top: -213px;
+	margin-top: -160px;
 }
 
 a {

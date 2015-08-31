@@ -1,0 +1,261 @@
+{% load static %}
+{% load user_extras %}
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Profile</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/profile-style.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+		<link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div id="main">
+			<header>
+				<div id="logo">
+					Traveler<br>
+					<span><span><i class="fa fa-at"></i></span>Timeline</span>
+				</div>
+				
+				<p class="hSeperator"></p>
+				
+				<div id="find-friend">
+					<div class="dd" id="text" data-dd="ff-dropdown">Find people<i id="bot-icon" class="fa fa-sort-desc"></i></div>
+				</div>
+				
+				<div class="dropdown dd-deactive" id="ff-dropdown">
+					<div class="pointer"></div>
+					
+					<div class="content">
+						<button id="sug-ppl" class="tab current ff" data-content="#sug-content">You may know</button>
+						<div class="sub-content" id="sug-content">
+							<button id="invite">Invite friends</button>
+							<p class="vSeperator"></p>
+							<div class="sug-container">
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">AM</span></div>
+									<span class="sug-person-name">Alireza Molla</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">AY</span></div>
+									<span class="sug-person-name">Ashkan Yousefi</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">PN</span></div>
+									<span class="sug-person-name">Pedram Noruz</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">HR</span></div>
+									<span class="sug-person-name">Hesam Rahnama</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">KS</span></div>
+									<span class="sug-person-name">Kurosh Salehi</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">AH</span></div>
+									<span class="sug-person-name">Amin Heydarshahi</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">HY</span></div>
+									<span class="sug-person-name">Hossein Yousefi</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">MR</span></div>
+									<span class="sug-person-name">Mamad Rezaii</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">SY</span></div>
+									<span class="sug-person-name">Shayan Yousefi</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+								<div class="sug-person">
+									<div class="sug-person-img default"><span class="def-name">SN</span></div>
+									<span class="sug-person-name">Sorush Niki</span>
+									<span class="sug-person-follow">Follow</span>
+								</div>
+							</div>
+						</div>
+						<button id="search-ppl" class="tab ff" data-content="#search-content">Search for people</button>
+						<div class="sub-content" id="search-content">
+							<p>Search for people who is using traveler to make friends and share adventures together!</p>
+							<form action="" method="post">
+								<input id="search4people" name="search" type="text" placeholder="Find member...">
+							</form>
+							<div id="search-ppl-results">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<button id="home" style="color: #ab171e;"><i class="fa fa-home"></i></button>
+				<form action="" method="post" id="search-form">
+					<input name="search" type="text" placeholder="Search" id="search">
+				</form>
+				<button class="dd" id="categories" data-dd="cat-dropdown"><i class="fa fa-bars"></i></button>
+				
+				<div class="dropdown dd-deactive" id="cat-dropdown">
+					<div class="pointer"></div>
+					
+					<div class="content">
+						<h1>Categories</h1>
+						<div class="sub-content" id="cat-content">
+							<div class="col-1">
+								<a href="">Events & Holidays</a>
+								<a href="">Outdoor</a>
+								<a href="">Travel</a>
+								<a href="">Shop</a>
+								<a href="">Tour System</a>
+								<a href="">Planing a Trip</a>
+							</div>
+							<div class="col-2">
+								<a href="">Renting a Car</a>
+								<a href="">Knowledges & Articles</a>
+								<a href="">Being Host or Guest</a>
+								<a href="">Restaurants</a>
+								<a href="">Hotels & Inns</a>
+								<a href="">Cafés</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="prof">
+				
+					<a href="{% url 'profile' %}">
+                        <div id="avatar">
+                            {% if currUser.image != '' %}
+                                <img src="{% static 'img/avatar/Me.jpg' %}">
+                            {% else %}
+                                <div class="sug-person-img default">
+                                    <span class="def-name">
+                                        {{ currUser.user.first_name|shortname }}
+                                    </span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </a>
+					
+					<button class="dd" id="settings" data-dd="sets-dropdown"><i class="fa fa-cog"></i></button>
+					<div class="dropdown dd-deactive" id="sets-dropdown">
+						<div class="pointer"></div>
+						
+						<div class="content">
+							<a href=""><i class="fa fa-cogs"></i>Account Settings</a>
+							<a href=""><i class="fa fa-paragraph" id="i2"></i>New Pin-Post</a>
+							<a href=""><i class="fa fa-calendar" id="i3"></i>My Calendar</a>
+							<a href=""><i class="fa fa-sign-out" id="i4"></i>Logout</a>
+						</div>
+					</div>
+					
+					<button class="dd" id="feeds" data-dd="feeds-dropdown"><i class="fa fa-history"></i></button>
+					<div class="dropdown dd-deactive" id="feeds-dropdown">
+						<div class="pointer"></div>
+						
+						<div class="content">
+							<button id="notifications" data-content="#" class="current tab feeds">Notifications</button>
+							<div class="sub-content" id="notif-content">
+								<div id="notif-container">
+									<div id="mine">
+										
+									</div>
+									<div id="recomm">
+										
+									</div>
+								</div>
+							</div>
+							<button id="messages" data-content="#" class="tab feeds">Messages</button>
+							<div class="sub-content" id="msg-content" style="display: none;">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div id="wrapper">
+				<div id="prof-img-name">
+                    {% if currUser.image != '' %}
+                        <img src="{% static 'img/avatar/Me.jpg' %}">
+                    {% else %}
+                        <div class="sug-person-img default">
+                            <span class="def-name">
+                                {{ currUser.user.first_name|shortname }}
+                            </span>
+                        </div>
+                    {% endif %}
+                    <br>
+                    <span>
+                        {{ user.user.first_name }}
+                    </span>
+                </div>
+
+				<div class="seperator top"></div>
+
+				<div id="prof-dets">
+					<a href="" class="det" id="age"><span class="topic">Age:</span> <span class="val">{{ user.age }}</span></a>
+					<a href="" class="det" id="pp"><span class="topic">Pin-Posts:</span> <span class="val">{{ user.author.all.count }}</span></a>
+					<a href="" class="det" id="fer"><span class="topic">Followers:</span> <span class="val">{{ user.followers.all.count }}</span></a>
+					<a href="" class="det" id="fing"><span class="topic">Following:</span> <span class="val">{{ user.followings.all.count }}</span></a>
+				</div>
+
+				<div class="seperator bot"></div>
+
+				<form action="" method="post" id="btnform">
+					<input type="hidden" name="form" value="btn">
+					<input type="submit" id="aboutbtn" value="About">
+                    {% if currUser == user %}
+
+                    {% else %}
+					    <input type="submit" id="followbtn" value="Follow">
+                    {% endif %}
+				</form>
+
+				<div class="seperator x1"></div>
+				<h1>Pin Boards</h1>
+				<div class="seperator x1"></div>
+				
+				<div id="new">
+					<span><i class="fa fa-plus"></i> New board</span>
+				</div>
+
+				<div id="boards">
+                    {% for board in currUser.participants.all %}
+                        <a href="{% url 'board' board.id %}">
+                            <div class="board item">
+                                <img src="{{ board.image.url }}">
+                                <div class="info">
+                                    <p class="name"> {{ board.name }} </p><br>
+                                    <button>Follow</button>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/masonry.js' %}"></script>
+		<script src="{% static 'js/header.js' %}"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#boards").masonry({
+					itemSelector: ".item",
+					columnWidth: 200,
+					gutter: 20,
+					isFitWidth: true
+				});
+			});
+		</script>
+	</body>
+</html>

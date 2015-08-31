@@ -2,13 +2,6 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.forms.widgets import TextInput, PasswordInput, RadioSelect
-import normaluser
-from normaluser.models import NormalUser
-
-my_default_errors = {
-    'required': 'This field is required',
-    'invalid': 'Enter a valid value'
-}
 
 class LoginForm(forms.Form):
     def __init__(self, *args, **kwargs):
